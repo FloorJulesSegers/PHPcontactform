@@ -21,7 +21,7 @@ try {
     $mail->Port       = 587;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->setFrom('from@example.com', $firstName." ".$lastName);
     $mail->addAddress('floorsegers70@gmail.com');               // Name is optional
     $mail->addCC('cc@example.com');
 
@@ -29,8 +29,11 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'PHP contactform';
-    $mail->Body    = $_POST['message'];
-    $mail->AltBody = $_POST['message'];
+    //$mail->Body    = $_POST['message'];
+    $mail->Body = '<p>' . $_POST['firstname'] . $_POST['lastname'] . '</p>' . $_POST['email'] . '</p><p>' . $_POST['message'] . '</p>';
+
+
+
 
     $mail->send();
     echo 'Message has been sent';

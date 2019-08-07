@@ -4,7 +4,6 @@
         $lastName = $_POST['lastname'];
         $mail = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 		$message = $_POST['message'];
-		$body ="From: $firstname\n $lastName\n E-Mail: $email\n Message:\n $message";
 		// Check if first name has been entered
 		if (!$_POST['firstname']) {
 			$errorfirstName = 'Please enter your first name';
